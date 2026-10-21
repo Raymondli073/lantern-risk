@@ -1,0 +1,28 @@
+# A $10m global multi-asset portfolio used by the demo, the report and the app.
+name: Global Multi-Asset (demo)
+description: >
+  Core equity ETFs, a satellite of single stocks, Treasuries and corporate credit
+  priced off the key-rate curve, gold, bitcoin, an index put hedge and a EUR overlay.
+benchmark: {ACWI: 0.60, AGG: 0.40}
+positions:
+  - {type: etf, symbol: SPY, market_value: 2500000}
+  - {type: etf, symbol: EFA, market_value: 900000}
+  - {type: etf, symbol: EEM, market_value: 450000}
+  - {type: equity, symbol: AAPL, market_value: 300000}
+  - {type: equity, symbol: MSFT, market_value: 300000}
+  - {type: equity, symbol: NVDA, market_value: 350000}
+  - {type: equity, symbol: JPM, market_value: 200000}
+  - {type: equity, symbol: XOM, market_value: 200000}
+  - {type: bond, id: UST 4.25% 2035, face: 1500000, coupon: 0.0425, maturity: 2035-08-15}
+  - {type: bond, id: UST 4.00% 2030, face: 1000000, coupon: 0.04, maturity: 2030-09-30}
+  - {type: bond, id: UST 4.75% 2054, face: 400000, coupon: 0.0475, maturity: 2054-11-15}
+  - {type: bond, id: IG Corp 5.1% 2033, face: 800000, coupon: 0.051, maturity: 2033-06-01,
+     spread: 0.0095, spread_factor: CREDIT.IG, spread_vol: 0.00015}
+  - {type: bond, id: HY Corp 7.0% 2030, face: 400000, coupon: 0.07, maturity: 2030-03-01,
+     spread: 0.031, spread_factor: CREDIT.HY, spread_vol: 0.0006}
+  - {type: etf, symbol: GLD, market_value: 500000}
+  - {type: crypto, symbol: BTC-USD, id: BTC, market_value: 200000}
+  - {type: option, id: SPY 90% put Jun-27, underlying: SPY, right: put, strike_pct: 0.90,
+     expiry: 2027-06-18, quantity: 30, vol_beta: 0.6, vol_spread: 0.08}
+  - {type: fx_forward, id: EUR/USD forward, factor: FX.EUR, notional_usd: -500000}
+  - {type: cash, id: USD cash, amount: 300000}
