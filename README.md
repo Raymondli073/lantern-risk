@@ -20,8 +20,9 @@ scenarios and drives a factor-timing strategy (TSFE).
 
 ![Report header](docs/img/header.png)
 
-The full sample report is in [`docs/demo/lantern_report.html`](docs/demo/lantern_report.html).
-Run `lantern report` to regenerate it with today's data.
+**[Open the interactive sample report](https://raymondli073.github.io/lantern-risk/demo/lantern_report.html)**
+(or browse the [project site](https://raymondli073.github.io/lantern-risk/)). Run
+`lantern report` to regenerate it with today's data.
 
 ---
 
