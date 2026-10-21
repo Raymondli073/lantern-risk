@@ -1,0 +1,26 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.10"
+            extras: "dev"          # pure-numpy explosiveness path
+          - python: "3.12"
+            extras: "all"          # with numba and streamlit
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[${{ matrix.extras }}]"
+      - run: pytest -q
+      - name: offline report smoke test
+        run: lantern report --synthetic --out reports/ci_report.html
